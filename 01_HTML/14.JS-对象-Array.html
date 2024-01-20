@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-对象-Array</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    // 定义数组
+    var arr = new Array(1, 2, 3, 4);
+    var arr1 = [1, 2, 3, 4]
+    console.log(arr[1]);
+    console.log(arr1[2]);
+
+    // 特点： 长度可变 类型可变
+    arr[10] = 50;
+    console.log(arr[10]);   // 50
+    console.log(arr[9]);    // undefined
+    console.log(arr[8]);    // undefined
+
+    arr[7] = "string";
+    console.log(arr[7]);
+
+    for (let index = 0; index < arr.length; index++) {
+        console.log("arr[" + index + "]:" + arr[index]);
+    }
+
+    // forEach 遍历数组中有值的元素
+    arr.forEach(function(e) {console.log(e);});
+    arr.forEach(e => {console.log(e)});
+
+    // push : 添加元素
+
+    // splice： 删除元素， 删除从start下标开始的连续number个元素
+    arr.splice(5, 2);
+    console.log(arr);
+</script>
+
+</html>
