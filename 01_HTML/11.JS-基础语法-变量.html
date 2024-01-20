@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-基础语法</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    // var 定义变量
+    // var a = 10;
+    // a = "张三";
+    // alert(a); 
+
+    // var 特点
+    // 特点1： 作用域比较大，全局变量
+    // 特点2： 可以重复定义
+    // {
+    //     var x = 1;
+    //     alert(x);
+    //     var x = "A";
+    // }
+
+    // alert(x);
+
+    // ES6 新增关键字： let const
+    // let ： 局部变量， 不能重复定义
+    {
+        let x = 1;
+        
+    }   
+    
+    // const： 常量
+    const pi = 3.14
+    pi = 3.15; // 错误， 控制台报错：Uncaught TypeError: Assignment to constant variable.
+    alert(pi);
+    
+</script>
+
+</html>
