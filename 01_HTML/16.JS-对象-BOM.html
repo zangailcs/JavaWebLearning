@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BOM: Browser Object Model, 浏览器对象模型，允许js与浏览器对话，js将浏览器各个组成部分封装为对象 -->
+    <!-- 组成：
+    Window: 浏览器窗口对象 -- 重点了解
+    Navigator: 浏览器对象
+    Screen: 屏幕对象
+    History: 历史记录对象
+    Location: 地址栏对象 -- 重点了解
+    -->
+    
+    <title>JS-对象-BOM</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    // 获取
+    // window.alert("Hello BOM");
+
+    // window的方法
+    // confirm -- 确认
+    // var flag = window.confirm("确认删除？");
+    // alert(flag);
+
+    // 定时器 setInterval
+    // var i = 0;
+    // setInterval(function(){
+    //     i++;
+    //     console.log("定时器执行了" + i + "次");
+    // }, 2000);
+
+    // 定时器
+    // setTimeout(function() {
+    //     alert("JS");
+    // }, 3000);
+
+    // location href
+    alert(location.href);
+    location.href = "https://www.baidu.com"; // https 是必须的
+
+</script>
+
+</html>
