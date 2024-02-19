@@ -19,6 +19,23 @@
             <el-table-column prop="address" label="地址">
             </el-table-column>
         </el-table>
+
+        <!-- 分页 -->
+        <el-pagination background layout="sizes, prev, pager, next, jumper, total" @size-change="handleSizeChange"
+            @current-change="handleCurrentChange" :total="1000">
+        </el-pagination>
+
+        <!-- 对话框 -->
+        <!-- Table -->
+        <el-button type="text" @click="dialogTableVisible = true">打开嵌套表格的 Dialog</el-button>
+
+        <el-dialog title="收货地址" :visible.sync="dialogTableVisible">
+            <el-table :data="gridData">
+                <el-table-column property="date" label="日期" width="150"></el-table-column>
+                <el-table-column property="name" label="姓名" width="200"></el-table-column>
+                <el-table-column property="address" label="地址"></el-table-column>
+            </el-table>
+        </el-dialog>
     </div>
 </template>
 
@@ -42,7 +59,45 @@ export default {
                 date: '2016-05-03',
                 name: '王小虎',
                 address: '上海市普陀区金沙江路 1516 弄'
-            }]
+            }],
+            gridData: [{
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄'
+            }, {
+                date: '2016-05-04',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄'
+            }, {
+                date: '2016-05-01',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄'
+            }, {
+                date: '2016-05-03',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄'
+            }],
+            dialogTableVisible: false,
+            dialogFormVisible: false,
+            form: {
+                name: '',
+                region: '',
+                date1: '',
+                date2: '',
+                delivery: false,
+                type: [],
+                resource: '',
+                desc: ''
+            },
+            formLabelWidth: '120px'
+        }
+    },
+    methods: {
+        handleSizeChange: function (val) {
+            alert("每页记录数变化" + val)
+        },
+        handleCurrentChange: function (val) {
+            alert("页码发生变化" + val)
         }
     }
 }
