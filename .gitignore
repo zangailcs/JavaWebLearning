@@ -3,3 +3,4 @@
 01_HTML/video/**/*
 **/only-local-*/*
 **/node_modules/*
+.idea/*
