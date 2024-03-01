@@ -1,5 +1,6 @@
 package com.lcs;
 
+import com.lcs.pojo.User;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,6 +35,18 @@ public class HelloController {
     public String simpleParamBySpringBoot(@RequestParam(name = "name", required = false) String userName, Integer age) {
         System.out.println(userName + ":" + age);
         return "Hello, simpleParamBySpringBoot: " + userName + ":" + age;
+    }
+
+    @RequestMapping("/simplePojo")
+    public String simplePojo(User user) {
+        System.out.println(user);
+        return "Hello, simplePojo: " + user;
+    }
+
+    @RequestMapping("/complexPojo")
+    public String complexPojo(User user) {
+        System.out.println(user);
+        return "Hello, complexPojo: " + user;
     }
 
 }
