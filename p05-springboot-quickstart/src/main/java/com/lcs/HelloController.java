@@ -2,9 +2,10 @@ package com.lcs;
 
 import com.lcs.pojo.User;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.List;
 
 // 请求处理类
 @RestController
@@ -49,4 +50,33 @@ public class HelloController {
         return "Hello, complexPojo: " + user;
     }
 
+    @RequestMapping("/arrayParam")
+    public String arrayParam(String[] hobby) {
+        System.out.println(Arrays.toString(hobby));
+        return "Hello, arrayParam: " + Arrays.toString(hobby);
+    }
+
+    @RequestMapping("/listParam")
+    public String listParam(@RequestParam List<String> hobby) {
+        System.out.println(hobby);
+        return "Hello, arrayParam: " + hobby;
+    }
+
+    @RequestMapping("/jsonParam")
+    public String jsonParam(@RequestBody User user) {
+        System.out.println(user);
+        return "Hello, jsonParam: " + user;
+    }
+
+    /**
+     * 路径参数
+     *
+     * @param id 路径参数
+     * @return str
+     */
+    @RequestMapping("/path/{id}")
+    public String pathParam(@PathVariable Integer id) {
+        System.out.println(id);
+        return "Hello, pathParam: " + id;
+    }
 }
