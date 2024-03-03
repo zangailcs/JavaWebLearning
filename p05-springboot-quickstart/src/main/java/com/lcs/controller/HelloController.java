@@ -1,13 +1,22 @@
-package com.lcs;
+package com.lcs.controller;
 
+import com.lcs.pojo.Address;
+import com.lcs.pojo.Result;
 import com.lcs.pojo.User;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 // 请求处理类
+
+/**
+ * HelloController
+ * 注释： @RestController = @Controller + @ResponseBody
+ * 其中 @ResponseBody 注解会将方法返回值转换为JSON并返回给浏览器
+ */
 @RestController
 public class HelloController {
 
@@ -78,5 +87,37 @@ public class HelloController {
     public String pathParam(@PathVariable Integer id) {
         System.out.println(id);
         return "Hello, pathParam: " + id;
+    }
+
+    @RequestMapping("/result/hello")
+    public Result resultHello(){
+        System.out.println("Hello World ~");
+        //return new Result(1,"success","Hello World ~");
+        return Result.success("Hello World ~");
+    }
+
+    @RequestMapping("/result/getAddr")
+    public Result getAddr(){
+        Address addr = new Address();
+        addr.setProvince("广东");
+        addr.setCity("深圳");
+        return Result.success(addr);
+    }
+
+    @RequestMapping("/result/listAddr")
+    public Result listAddr(){
+        List<Address> list = new ArrayList<>();
+
+        Address addr = new Address();
+        addr.setProvince("广东");
+        addr.setCity("深圳");
+
+        Address addr2 = new Address();
+        addr2.setProvince("陕西");
+        addr2.setCity("西安");
+
+        list.add(addr);
+        list.add(addr2);
+        return Result.success(list);
     }
 }
